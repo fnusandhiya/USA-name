@@ -22,7 +22,7 @@ def data():
 @app.route("/home")
 def home():
     """Render Home Page."""
-    return render_template("index.html")
+    #return render_template("index.html")
 
 
 
