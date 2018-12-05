@@ -10,19 +10,19 @@ from flask_sqlalchemy import SQLAlchemy
 app = Flask(__name__)
 
 
-@app.route("/")
+@app.route("/data")
 def data():
     """Return data."""
-    json_ = request.json
-    new = pd.read_csv('data.csv')
-    json_vector = new.transform(json_)
-    query = pd.DataFrame(json_vector)
-    return jsonify(query)
+    #json_ = request.json
+    new = pd.read_csv('final.csv')
+    #json_vector = new.transform(json_)
+    #query = pd.DataFrame(json_vector)
+    return jsonify(new.to_json(orient='records'))
 
-@app.route("/home")
+@app.route("/")
 def home():
     """Render Home Page."""
-    #return render_template("index.html")
+    return render_template("index.html")
 
 
 
