@@ -26,9 +26,12 @@ submit.on("click", function() {
   let filteredData = newData
   filteredData = filteredData.filter(names => names.Name === inputElement);
   //console.log(filteredData)
+  console.log(filteredData.length)
   var names = filteredData.map(name => name.Name);
-  if (inputElement in names === false){
+  if (filteredData.length === 0){
       alert("Sorry!! We can not find your name....");
+      d3.select(".summary li").remove();
+      d3.select("#gender_image").attr("src", "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS_cHfgCqedy8_NnNX_JCGY2zeblYNzKtG1vgcSx10NNGJN7mEGA");
       return false;
   }
   // BONUS: Calculate summary statistics for the age field of the filtered data
