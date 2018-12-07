@@ -61,8 +61,5 @@ def Search():
     return jsonify(json_results)
 
 
-
-
-
 if __name__ == '__main__':
     app.run(debug=True)
