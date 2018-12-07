@@ -52,11 +52,11 @@ submit.on("click", function() {
 
   d3.select("#gender_image").attr("src", image);
   // Next, use math.js to calculate the mean, median, mode, var, and std of the ages
-  var mean = math.mean(Occurrences);
+  var mean = math.round(math.mean(Occurrences));
   var median = math.median(Occurrences);
   var mode = math.mode(Occurrences);
-  var variance = math.var(Occurrences);
-  var standardDeviation = math.std(Occurrences);
+  var variance = math.round(math.var(Occurrences));
+  var standardDeviation = math.round(math.std(Occurrences));
 
   // Finally, add the summary stats to the `ul` tag
   d3.select(".summary li").remove();
