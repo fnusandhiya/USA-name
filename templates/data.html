@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CSV File to HTML Table Using AJAX jQuery</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" />
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style>
+    .dropdown-menu{
+    display: none;
+    position: absolute;
+    }
+
+    nav ul li:hover ul{
+    display: block;
+    background-color:rgb(240, 112, 66);
+    }
+</style>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid", style="background-color:rgb(211, 94, 52)">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="index.html">Home</a>
+
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown"><a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" type="button" id="menu1">Visuals<span class="caret"></span></a>
+                <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                    <li><a href="temp.html">Plot 1</a></li>
+                    <li><a href="humidity.html">Plot 2</a></li>
+                    <li><a href="cloudiness.html">Plot3</a></li>
+
+                </ul>
+
+            </li>
+            <li><a href="data.html">Data</a></li>
+
+        </ul>
+
+    </div>
+</nav>
+  <div class="container">
+   <div class="table-responsive">
+    <h1 align="center">CSV File to HTML Table Using AJAX jQuery</h1>
+    <br />
+    <div align="center">
+     <button type="button" name="load_data" id="load_data" class="btn btn-info">Load Data</button>
+    </div>
+    <br />
+    <div id="employee_table">
+    </div>
+   </div>
+  </div>
+</body>
+</html>
