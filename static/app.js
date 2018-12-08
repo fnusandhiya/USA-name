@@ -43,7 +43,7 @@ submit.on("click", function() {
   
 
   if (genders[0]==="F"){
-      alert("Yay!! This is a female name...");
+      alert("Yay!! Its a girl's name...");
       var image = "/static/1457d79ae7aeb25.jpg"
   }else {
       alert("Oh, sounds more like a boy's name though...");

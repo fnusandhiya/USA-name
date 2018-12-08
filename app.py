@@ -43,6 +43,10 @@ def data():
 def home():
     """Render Home Page."""
     return render_template("index.html")
+@app.route("/ajax")
+def table():
+    """Render Home Page."""
+    return render_template("data.html")
 
 @app.route("/sqlite")
 def sql():
@@ -51,6 +55,14 @@ def sql():
     results = pd.read_sql_query(query_statement, db.session.bind)
     json_results = results.to_json(orient='records')
     return jsonify(json_results)
+
+@app.route("/table")
+def Table():
+    """Render Home Page."""
+    query_statement = db.session.query(SQL.Abbr, SQL.Gender, SQL.Year, SQL.Name, SQL.Occurrence, SQL.State, SQL.Lat, SQL.Lon).limit(10000).statement
+    results = pd.read_sql_query(query_statement, db.session.bind)
+    json_results = results.to_json(orient='records')
+    return render_template("table_render.html", json_results=json_results)
 
 @app.route("/search")
 def Search():
