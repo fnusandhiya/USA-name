@@ -7,6 +7,7 @@ from flask import (
     jsonify)
 
 from flask_sqlalchemy import SQLAlchemy
+from sqlalchemy import func
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = "sqlite:///names_data.sqlite"
@@ -47,6 +48,10 @@ def home():
 def table():
     """Render Home Page."""
     return render_template("data.html")
+@app.route("/ted")
+def states():
+    """Render ted Page."""
+    return render_template("ted.html")
 
 @app.route("/sqlite")
 def sql():
@@ -63,6 +68,14 @@ def Table():
     results = pd.read_sql_query(query_statement, db.session.bind)
     json_results = results.to_json(orient='records')
     return render_template("table_render.html", json_results=json_results)
+    
+@app.route("/my/<name>")
+def States(name):
+    #query_statement = db.session.query(SQL.Name, SQL.Year, SQL.State, SQL.Occurrence).statement
+    query_statement = db.session.query(SQL.Name, SQL.State, func.sum(SQL.Occurrence)).group_by(SQL.State).filter(SQL.Name == name).statement
+    results = pd.read_sql_query(query_statement, db.session.bind)
+    json_results = results.to_json(orient='records')
+    return jsonify(json_results)
 
 @app.route("/search")
 def Search():
