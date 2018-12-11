@@ -55,8 +55,8 @@ submit.on("click", function() {
   var mean = math.round(math.mean(Occurrences));
   var median = math.median(Occurrences);
   var mode = math.mode(Occurrences);
-  var variance = math.round(math.var(Occurrences));
-  var standardDeviation = math.round(math.std(Occurrences));
+  /*var variance = math.round(math.var(Occurrences));
+  var standardDeviation = math.round(math.std(Occurrences));*/
 
   // Finally, add the summary stats to the `ul` tag
   d3.select(".summary li").remove();
@@ -64,8 +64,8 @@ submit.on("click", function() {
     .append("li").text(`Mean: ${mean}`)
     .append("li").text(`Median: ${median}`)
     .append("li").text(`Mode: ${mode}`)
-    .append("li").text(`Variance: ${variance}`)
-    .append("li").text(`Standard Deviation: ${standardDeviation}`);
+    /*.append("li").text(`Variance: ${variance}`)
+    .append("li").text(`Standard Deviation: ${standardDeviation}`);*/
 
   //console.log(filteredData);
   });
