@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Name Density Layers</title>
+
+    <!-- Leaflet CSS & JS -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.3/dist/leaflet.css" integrity="sha512-Rksm5RenBEKSKFjgI3a41vrjkw4EVPlJ3+OiI65vTjIdo9brlAacEuKOiQ5OFh7cOI1bkDwLqdLw3Zg0cRJAAQ=="
+        crossorigin="" />
+    <script src="https://unpkg.com/leaflet@1.3.3/dist/leaflet.js" integrity="sha512-tAGcCfR4Sc5ZP5ZoVz0quoZDYX5aCtEm/eu1KhSLj2c9eFrylXZknQYmxUssFaVJKvvc0dJQixhGjG2yXWiV9Q=="
+        crossorigin=""></script>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+    <script src="https://d3js.org/d3.v5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.0/math.min.js"></script>
+
+    <!-- Our CSS -->
+    <link rel="stylesheet" type="text/css" href="../static/style.css">
+</head>
+
+<body>
+
+    <!--The div for input box-->
+    <div class="col-md-12">
+        <form>
+            <div class="form-group">
+                <label for="name-form" , id="n_input">Type Any Name</label>
+                <input class="form-control" id="searchBox" name="user-search-form" type="text" placeholder="Search Query...">
+            </div>
+            <button id="submit" type="submit" class="btn btn-default">Click</button>
+        </form>
+    </div>
+
+    <div id="response"></div>
+
+    <script src="http://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $("#searchBox").keyup(function () {
+                var query = $("#searchBox").val();
+                console.log("query");
+
+                // if (query.length > 0) {
+                //     $.ajax({
+                //         data: {
+                //             search: 1,
+                //             q: query
+
+                //         },
+                //         success: function (data) {
+                //             $("#response").html(data);
+                //         },
+                //         dataType: 'text'
+                //     });
+                // }
+            });
+
+            $(document).on('click', 'li', function () {
+                var Final_db = $(this).text(); // this is used for csv; should I use the searchBox from flask server
+                $("#searchBox").val(Final_db);
+                $("#response").html("");
+            });
+        });
+    </script>
+
+
+
+
+    <!-- The div where we will inject our dropdown menu -->
+    <div id="year"></div>
+
+    <!-- The div where we will inject our map -->
+    <div id="map"></div>
+
+    <!-- API key -->
+    <script type="text/javascript" src="../static/config.js"></script>
+
+    <!-- Our JS -->
+    <script type="text/javascript" src="../static/statesData.js"></script>
+    <script src="../static/logic2.js"></script>
+</body>
+
+</html>

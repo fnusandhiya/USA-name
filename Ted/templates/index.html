@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Forms</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootswatch/3.3.7/superhero/bootstrap.min.css">
+  <script src="https://d3js.org/d3.v5.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjs/5.0.0/math.min.js"></script>
+<style>
+    .summary{
+        color: black;
+    }
+    .dropdown-menu{
+    display: none;
+    position: absolute;
+    }
+
+    nav ul li:hover ul{
+    display: block;
+    background-color:rgb(240, 112, 66);
+    }
+    #patient-form-input {
+    border: 1px solid grey;
+    background-color: white;
+    font-size: 17px;  
+    color: #D6D6D0;
+    margin-top: 15px;
+    cursor: pointer;
+  }
+  #grad1 {
+    color: rgb(110, 108, 108);
+    text-align: center;
+    font-size: 60px;
+    }
+    h1{
+    position:relative;
+    text-transform:uppercase;
+    color:rgb(35, 115, 190);
+    }
+    h1:before{
+    content: attr(data-content);
+    position:absolute;
+    top:0; left:0;
+    width:2.2em;
+    overflow:hidden;
+    color:rgb(241, 127, 146);
+    }
+    #img {
+        align-content: middle;
+    }
+
+
+</style>
+</head>
+
+<body style="background-color:white;">
+<nav class="navbar navbar-inverse">
+        <div class="container-fluid", style="background-color:rgb(211, 94, 52)">
+            <div class="navbar-header">
+                <a class="navbar-brand" href="index.html">Home</a>
+    
+            </div>
+            <ul class="nav navbar-nav navbar-right">
+                <li class="dropdown"><a class="btn btn-default dropdown-toggle" data-toggle="dropdown" href="#" type="button" id="menu1">Visuals<span class="caret"></span></a>
+                    <ul class="dropdown-menu" role="menu" aria-labelledby="menu1">
+                        <li><a href="Ted.html">Plot 1</a></li>
+                        <li><a href="humidity.html">Plot 2</a></li>
+                        <li><a href="cloudiness.html">Plot3</a></li>
+    
+                    </ul>
+    
+                </li>
+                <li><a href="data.html">Data</a></li>
+    
+            </ul>
+    
+        </div>
+</nav>
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12">
+        <form>
+          <div class="form-group">
+            <label for="patient-form", id="grad1">Type Your Name</label>
+            <input class="form-control" id="patient-form-input" name="patient-form" type="text" placeholder="Type Your Name....">
+          </div>
+          <button id="submit" type="submit" class="btn btn-default">Click</button>
+        </form>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-12">
+        <h1 data-content="Summary">Summary</h1>
+        <ul class="summary"></ul>
+        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQS_cHfgCqedy8_NnNX_JCGY2zeblYNzKtG1vgcSx10NNGJN7mEGA" alt="picture" width="460" height="345" id="gender_image">
+      </div>
+    </div>
+  </div>
+</body>
+<script src="../static/app.js"></script>
+
+</html>
