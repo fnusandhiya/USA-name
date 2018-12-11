@@ -44,6 +44,16 @@ def data():
 def home():
     """Render Home Page."""
     return render_template("index.html")
+@app.route("/rich")
+def home():
+    """Render Home Page."""
+    return render_template("index.html")
+
+@app.route("/rich/")
+def home():
+    """Render Home Page."""
+    return render_template("index.html")
+
 @app.route("/ajax")
 def table():
     """Render Home Page."""
@@ -68,7 +78,7 @@ def Table():
     results = pd.read_sql_query(query_statement, db.session.bind)
     json_results = results.to_json(orient='records')
     return render_template("table_render.html", json_results=json_results)
-    
+
 @app.route("/my/<name>")
 def States(name):
     #query_statement = db.session.query(SQL.Name, SQL.Year, SQL.State, SQL.Occurrence).statement

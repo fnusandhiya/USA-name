@@ -33,7 +33,7 @@ submit.on("click", function () {
     //console.log(inputElement);
     d3.json('/my/' + inputElement).then(function (data) {
         newData = JSON.parse(data);
-        console.log(newData);
+        //console.log(newData);
 
         //Get the value property of the input element
         //var inputValue = inputElement.property("value");
@@ -41,7 +41,7 @@ submit.on("click", function () {
         //console.log(people);
         let filteredData = newData
         filteredData = filteredData.filter(names => names.Name === inputElement);
-
+        d3.select("#map").remove();
         var names = filteredData.map(name => name.Name);
         if (filteredData.length === 0) {
             alert("Sorry!! We can not find that name....");
