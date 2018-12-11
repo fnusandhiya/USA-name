@@ -45,14 +45,14 @@ def home():
     """Render Home Page."""
     return render_template("index.html")
 @app.route("/rich")
-def home():
+def rich():
     """Render Home Page."""
-    return render_template("index.html")
+    return render_template("Plot 9.html")
 
 @app.route("/rich/")
-def home():
+def richard():
     """Render Home Page."""
-    return render_template("index.html")
+    return render_template("Plot 5.html")
 
 @app.route("/ajax")
 def table():
