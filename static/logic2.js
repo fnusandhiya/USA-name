@@ -33,7 +33,7 @@ submit.on("click", function () {
     //console.log(inputElement);
     d3.json('/my/' + inputElement).then(function (data) {
         newData = JSON.parse(data);
-        //console.log(newData);
+        console.log(newData);
 
         //Get the value property of the input element
         //var inputValue = inputElement.property("value");
@@ -41,7 +41,7 @@ submit.on("click", function () {
         //console.log(people);
         let filteredData = newData
         filteredData = filteredData.filter(names => names.Name === inputElement);
-        d3.select("#map").remove();
+
         var names = filteredData.map(name => name.Name);
         if (filteredData.length === 0) {
             alert("Sorry!! We can not find that name....");
@@ -63,9 +63,17 @@ submit.on("click", function () {
             return this._div;
         };
 
-        info.update = function (props) {
+        info.update = function (props) { 
+            function getNameCount(State){
+            for (var i=0; i< newData.length; i++){
+                if (State == newData[i].State){
+                    return newData[i].sum_1
+                }
+            }
+            
+        }
             this._div.innerHTML = '<h4>USA Name by State Density</h4>' + (props ?
-                '<b>' + props.name + '</b><br />' + props.density + ' people / mi<sup>2</sup>' :
+                '<b>' + props.name + '</b><br />' + getNameCount(props.name) + ' count for the State' :
                 'Hover over a state');
         };
 
