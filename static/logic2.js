@@ -41,7 +41,7 @@ submit.on("click", function () {
         //console.log(people);
         let filteredData = newData
         filteredData = filteredData.filter(names => names.Name === inputElement);
-
+        //d3.select("#map").remove();
         var names = filteredData.map(name => name.Name);
         if (filteredData.length === 0) {
             alert("Sorry!! We can not find that name....");
@@ -76,8 +76,10 @@ submit.on("click", function () {
                 '<b>' + props.name + '</b><br />' + getNameCount(props.name) + ' count for the State' :
                 'Hover over a state');
         };
+        
 
         info.addTo(map);
+        
 
 
         // get color depending on population density value
